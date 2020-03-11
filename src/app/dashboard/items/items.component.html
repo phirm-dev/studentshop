@@ -1,11 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
+      <div class="text-center mt-5">
+        <div class="spinner-border spinner-border-sm" style="width: 50px; height: 50px;" *ngIf="loading"></div>
+      </div>
       <br>
       <div class="list-group">
-        <div class="spinner-border spinner-border-sm" style="width: 50px; height: 50px;" *ngIf="loading"></div>
-        <span *ngFor="let item of items" routerLink="/app/item/details"
-          [queryParams]="{id:item?._id}" style="outline: none;">
+        <span *ngFor="let item of items" routerLink="/app/item/details" [queryParams]="{id:item?._id}"
+          style="outline: none;">
           <a class="list-group-item list-group-item-action justify-content-between d-flex">
             {{ item.item }}
             <!-- <span class="badge badge-primary badge-pill">{{item.bids.length}}</span> -->
@@ -17,7 +19,7 @@
           </a>
           <br>
         </span>
-        <div class="text-center" *ngIf="items?.length < 1">
+        <div class="text-center" *ngIf="!loading && items?.length < 1">
           You don't have any posted item
           <br>
           <button class="btn btn-primary" routerLink="/app/item">Click here to start</button>

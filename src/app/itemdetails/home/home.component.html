@@ -6,8 +6,10 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-6 mt-4">
-      <h6>Item Description</h6>
       <ul class="list-group">
+        <li class="list-group-item" style="font-weight: bold; background: aliceblue;">
+          Item Description
+        </li>
         <li class="list-group-item">
           {{itemDetails?.item}}
         </li>
@@ -20,8 +22,10 @@
       </ul>
     </div>
     <div class="col-lg-6 mt-4">
-      <h6>Buyers details</h6>
       <div class="list-group">
+        <a class="list-group-item list-group-item-action text-primary justify-content-between d-flex" style="color: black !important;font-weight: bold;background: aliceblue;">
+          Buyers details
+        </a>
         <a *ngFor="let bid of itemDetails?.bids" class="list-group-item list-group-item-action text-primary justify-content-between d-flex"
           data-toggle="modal" data-target="#myModal" (click)="populateDetails(bid)">
           Buyers Name - {{bid.full_name}}

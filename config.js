@@ -2,8 +2,7 @@ let environment = {};
 
 environment.development = {
     port: 3000,
-    database_uri: 'mongodb://phirmware:itachi1@ds239309.mlab.com:39309/student_shop',
-    //database_uri: 'mongodb://localhost/studentshop',
+    database_uri: 'mongodb://localhost/studentshop',
     token_key: 'Tmx8Y=fEn!A2KF=5cU2#&UaHMJweeUcTSWN5-6pXTUEHpu?Yhv'
 }
 
