@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "now-token": "7lAKbubvwfvB3XdTaehvKpQ7",
-    "deploy": "now --token=$NOW_TOKEN"
+    "deploy": "now --token=7lAKbubvwfvB3XdTaehvKpQ7"
   },
   "private": true,
   "dependencies": {
