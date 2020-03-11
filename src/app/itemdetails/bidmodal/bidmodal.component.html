@@ -1,0 +1,23 @@
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <ul class="list-group">
+        <li class="list-group-item text-uppercase" style="background: aliceblue;font-weight: bold;">
+          Bid Details
+        </li>
+        <li class="list-group-item">
+          Bidders Name - {{bidDetails?.full_name}}
+        </li>
+        <li class="list-group-item">
+          Bidders Phone - {{bidDetails?.phone_number}}
+        </li>
+        <li class="list-group-item">
+          Bid Price - {{bidDetails?.bid_price}} Naira
+        </li>
+        <li class="list-group-item">
+          Submitted - {{bidDetails?.date_submitted | date}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

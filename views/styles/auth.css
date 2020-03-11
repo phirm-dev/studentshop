@@ -1,0 +1,10 @@
+input{
+    padding: 10px !important;
+    border: 1px solid black !important;
+    background: aliceblue !important;
+    outline: none !important;
+}
+
+input:focus{
+    outline: none !important;
+}

@@ -1,0 +1,63 @@
+<app-nav (logOut)="logOut()"></app-nav>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="jumbotron">
+        <h3 class="text-center">Dashboard</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs flex-fill nav-justified">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#home">Items</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu1">Bids</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu2">Edit Profile</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane container active" id="home">
+          <app-items [items]="items" [loading]="loading"></app-items>
+        </div>
+        <!-- <div class="tab-pane container fade" id="menu1">
+          <app-bids></app-bids>
+        </div> -->
+        <div class="tab-pane container fade" id="menu2">
+          <br>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3"></div>
+              <div class="col-lg-6 text-center">
+                <br>
+                <button class="btn btn-primary">Can't Change Profile</button>
+                <br>
+                <p>Contact customer support if you have to</p>
+              </div>
+              <div class="col-lg-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+</div>

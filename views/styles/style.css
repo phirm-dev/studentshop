@@ -1,0 +1,67 @@
+body {
+    font-family: "varela round";
+    min-height: 100vh;
+}
+
+/* .btn {
+    border-radius: 5px;
+    background: #3b90da;
+    box-shadow: 3px 3px 7px #183a57, -3px -3px 7px #5ee6ff;
+    border: none;
+} */
+
+.jumbotron {
+    /* background: linear-gradient(45deg, black, transparent); */
+    height: 50vh;
+    color: #022B69;
+    background: aliceblue;
+}
+
+.jumbotron>p {
+    text-rendering: geometricPrecision;
+}
+
+.jumbotron .cart {
+    height: 400px;
+    width: 400px;
+    float: right;
+    margin-right: 20vw;
+    margin-top: -200px;
+}
+
+.navbar-toggler {
+    background: blue;
+}
+
+.btn-action {
+    padding: 11px;
+    font-weight: bold;
+    text-transform: uppercase
+}
+
+@media(max-width: 995px) {
+    .jumbotron {
+        height: auto;
+    }
+    .jumbotron .cart {
+        display: none;
+    }
+}
+
+@media(max-width: 500px) {
+    .card {
+        margin: 30px;
+    }
+}
+
+.card {
+    border-radius: 37px;
+    background: linear-gradient(145deg, #d4e0df, aliceblue);
+    /* box-shadow: 28px 28px 85px #a8b1b0, -28px -28px 85px #ffffff; */
+}
+
+.card-body>p {
+    /* text-shadow: 1px 1px 0 rgba(0,0,0,.35), 1px 1px 5px rgba(0,0,0,.5); */
+    font-weight: bolder;
+    font-size: 17px;
+}
