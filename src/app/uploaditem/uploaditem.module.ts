@@ -5,12 +5,14 @@ import { UploaditemRoutingModule } from './uploaditem-routing.module';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   imports: [
     CommonModule,
     UploaditemRoutingModule,
     HttpClientModule,
+    FileUploadModule,
   ],
   declarations: [HomeComponent, NavComponent]
 })

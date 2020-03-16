@@ -4,7 +4,6 @@
       <div class="text-center mt-5">
         <div class="spinner-border spinner-border-sm" style="width: 50px; height: 50px;" *ngIf="loading"></div>
       </div>
-      <br>
       <div class="list-group">
         <span *ngFor="let item of items" routerLink="/app/item/details" [queryParams]="{id:item?._id}"
           style="outline: none;">

@@ -118,6 +118,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TokenComponent", function() { return TokenComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _token_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./token.service */ "./src/app/auth/token/token.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -129,10 +130,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var TokenComponent = /** @class */ (function () {
-    function TokenComponent(router, route) {
+    function TokenComponent(router, route, service) {
         this.router = router;
         this.route = route;
+        this.service = service;
     }
     TokenComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -145,8 +148,8 @@ var TokenComponent = /** @class */ (function () {
             this.router.navigate(['/app/dashboard']);
         }
         else {
-            var token = localStorage.getItem('token');
-            if (!token) {
+            var isLoggedIn = this.service.isLoggedIn();
+            if (!isLoggedIn) {
                 return window.location.pathname = '/auth/login';
             }
             this.router.navigate(['/app/dashboard']);
@@ -158,7 +161,7 @@ var TokenComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./token.component.html */ "./src/app/auth/token/token.component.html"),
             styles: [__webpack_require__(/*! ./token.component.css */ "./src/app/auth/token/token.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"], _token_service__WEBPACK_IMPORTED_MODULE_2__["TokenService"]])
     ], TokenComponent);
     return TokenComponent;
 }());

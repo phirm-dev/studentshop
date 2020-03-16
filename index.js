@@ -11,10 +11,10 @@ const indexPageRoutes = require('./routers/pages');
 const authRoutes = require('./routers/auth');
 const itemApiRoutes = require('./routers/item_api');
 const bidApiRoutes = require('./routers/bid_api');
+const userApiRoutes = require('./routers/user_api');
 const { protect } = require('./utils/protect');
 
 mongoose.Promise = global.Promise;
-
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -22,10 +22,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(passport.initialize());
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexPageRoutes);
 app.use('/auth', authRoutes);
 app.use('/api/item', protect, itemApiRoutes);
 app.use('/api/bid', protect, bidApiRoutes);
+app.use('/api/user', protect, userApiRoutes);
 
 
 const pathToAngularApp = path.join(__dirname + '/dist/studentshop');

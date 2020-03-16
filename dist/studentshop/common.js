@@ -46,6 +46,15 @@ var UploaditemService = /** @class */ (function () {
         };
         return this.http.get(this.api, httpOptions);
     };
+    UploaditemService.prototype.uploadPictures = function (id, data) {
+        var httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            })
+        };
+        return this.http.post(this.api + "/upload/" + id, data, httpOptions);
+    };
     UploaditemService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'

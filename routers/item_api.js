@@ -1,9 +1,11 @@
 const router = require('express').Router();
-const { createItem, getItem, getItemById, deleteItem } = require('../controllers/item_api');
+const { getItem, getItemById, deleteItem } = require('../controllers/item_api');
 
 router.route('/')
       .get(getItem)
-      .post(createItem);
+
+// router.route('/upload/:id')
+//       .post(uploadPictures);
 
 router.route('/:id')
       .get(getItemById)

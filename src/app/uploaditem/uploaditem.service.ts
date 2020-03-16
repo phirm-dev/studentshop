@@ -28,4 +28,14 @@ export class UploaditemService {
     };
     return this.http.get(this.api, httpOptions);
   }
+
+  uploadPictures(id: string, data) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    };
+    return this.http.post(`${this.api}/upload/${id}`, data, httpOptions);
+  }
 }

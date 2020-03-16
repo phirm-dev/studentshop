@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UploaditemService } from '../uploaditem.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-home',
@@ -9,17 +11,20 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: UploaditemService, private router: Router) { }
+  constructor(private service: UploaditemService, private router: Router, private http: HttpClient) { }
+
+  id;
+  jwtHelper = new JwtHelperService();
 
   ngOnInit() {
+    this.getIdandDecode();
   }
 
-  submit(item: string, item_description: string, item_price: number) {
-    const obj = {item, item_description, item_price};
-    this.service.createItem(obj).subscribe(response => {
-      console.log(response);
-      this.router.navigate(['/app/dashboard']);
-    });
+  getIdandDecode() {
+    const token = localStorage.getItem('token');
+    const decodedToken = this.jwtHelper.decodeToken(token);
+    this.id = decodedToken.id;
   }
+
 
 }

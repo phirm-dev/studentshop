@@ -7,25 +7,32 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-6 col-sm-6">
-      <span>
+      <form method="post" action="/item/{{id}}" enctype="multipart/form-data">
         <div class="form-group">
-          <input type="text" class="form-control" #item id="uname" placeholder="Item Name" name="item" required>
+          <input type="text" class="form-control" id="uname" placeholder="Item Name" name="item" required>
           <div class="valid-feedback">Valid.</div>
           <div class="invalid-feedback">Please fill out this field.</div>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" id="uname" placeholder="Item Description" name="item_description" #item_description required>
+          <input type="text" class="form-control" id="uname" placeholder="Item Description" name="item_description"
+             required>
           <div class="valid-feedback">Valid.</div>
           <div class="invalid-feedback">Please fill out this field.</div>
         </div>
         <div class="form-group">
-          <input type="number" class="form-control" id="phonenumber" placeholder="Item Price" name="item_price" #item_price
-            required>
+          <input type="number" class="form-control" id="phonenumber" placeholder="Item Price" name="item_price"
+             required>
           <div class="valid-feedback">Valid.</div>
           <div class="invalid-feedback">Please fill out this field.</div>
         </div>
-        <button type="submit" class="btn btn-primary btn-block" (click)="submit(item.value, item_description.value, item_price.value)">Submit</button>
-      </span>
+        <div class="form-group">
+          <div class="upload-btn-wrapper">
+            <button class="btn-upload">Upload Max 1 Pictures</button>
+            <input type="file" name="photo" />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      </form>
     </div>
     <div class="col-lg-6 col-sm-6"></div>
   </div>

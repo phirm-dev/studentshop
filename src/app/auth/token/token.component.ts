@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TokenService } from './token.service';
 
 @Component({
   selector: 'app-token',
@@ -9,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class TokenComponent implements OnInit {
   token: string;
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private service: TokenService) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -20,8 +21,10 @@ export class TokenComponent implements OnInit {
       localStorage.setItem('token', this.token);
       this.router.navigate(['/app/dashboard']);
     } else {
-      const token = localStorage.getItem('token');
-      if (!token) { return window.location.pathname = '/auth/login'; }
+      const isLoggedIn = this.service.isLoggedIn();
+      if (!isLoggedIn) {
+        return window.location.pathname = '/auth/login';
+      }
       this.router.navigate(['/app/dashboard']);
     }
   }

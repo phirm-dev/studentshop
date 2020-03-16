@@ -1,4 +1,7 @@
 const db = require('../models');
+const multer = require('multer');
+const path = require('path');
+const config = require('../config');
 
 exports.index = async (req, res) => {
     try {
@@ -12,7 +15,7 @@ exports.index = async (req, res) => {
 exports.products = async (req, res) => {
     try {
         const id = req.params.id;
-        const item = await db.Item.findById(id);
+        const item = await db.Item.findById(id).populate('item_images');
         res.render('product', { item });
     } catch (error) {
         res.render('product', { item: {} });
@@ -50,3 +53,63 @@ exports.submitBid = async (req, res) => {
         res.redirect('back');
     }
 }
+
+const storage = multer.diskStorage({
+    destination: 'public/uploads/',
+    filename: function (req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({
+    storage: storage,
+    limits: { fileSize: 10000000 },
+    fileFilter: function (req, file, cb) {
+        checkFileType(file, cb);
+    }
+}).single('photo');
+
+function checkFileType(file, cb) {
+    const fileTypes = /jpeg|jpg|png|gif/;
+    const extname = fileTypes.test(path.extname(file.originalname).toLowerCase());
+
+    const mimeType = fileTypes.test(file.mimetype)
+
+    if (mimeType && extname) {
+        return cb(null, true);
+    } else {
+        cb('Error:Images Only!');
+    }
+}
+
+exports.createItem = async (req, res) => {
+    try {
+        upload(req, res, async (err) => {
+            if (err) {
+                res.redirect('back');
+            } else {
+
+                // create the image object and add to db
+                // Get the img id from created img object
+                // create the item object and push the image ID
+                const { filename } = req.file;
+                const img_uri = `${config.img_base_uri}/uploads/${filename}`;
+                const img_name = req.file.filename;
+                const img_path = `/uploads/${req.file.filename}`;
+                const newImg = await db.Img.create({ owner_id: req.params.id, img_uri, img_name, img_path });
+
+
+
+                const userId = req.params.id;
+                const { item, item_description, item_price } = req.body;
+                const newItem = await db.Item.create({ item, item_description, item_price, item_owner_id: userId, item_images: [newImg._id] });
+                res.redirect(`/app/item/details?id=${newItem._id}`);
+            }
+        });
+
+
+    } catch (error) {
+        res.status(500).json({ message: 'An error occured', error });
+    }
+}
+

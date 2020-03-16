@@ -1,19 +1,8 @@
 const db = require('../models');
 
-exports.createItem = async (req, res) => {
-    try {
-        const userId = req.user.id;
-        const { item, item_description, item_price } = req.body;
-        const newItem = await db.Item.create({ item, item_description, item_price, item_owner_id: userId })
-        res.json(newItem);
-    } catch (error) {
-        res.status(500).json({ message: 'An error occured', error });
-    }
-}
-
 exports.getItem = async (req, res) => {
     try {
-        const items = await db.Item.find({ item_owner_id: req.user.id }).populate('bid').exec();
+        const items = await db.Item.find({ item_owner_id: req.user.id }).populate('bids').exec();
         res.json(items);
     } catch (error) {
         res.status(500).json({ message: error });
@@ -22,7 +11,7 @@ exports.getItem = async (req, res) => {
 
 exports.getItemById = async (req, res) => {
     try {
-        const item = await db.Item.findById(req.params.id).populate('bids').exec();
+        const item = await db.Item.findById(req.params.id).populate('bids item_images').exec();
         res.json(item);
     } catch (error) {
         res.status(500).json(error);

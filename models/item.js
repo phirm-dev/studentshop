@@ -17,7 +17,12 @@ const ItemSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    item_images: [],
+    item_images: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'img'
+        }
+    ],
     item_owner_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',

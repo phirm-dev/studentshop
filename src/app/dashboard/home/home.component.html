@@ -47,10 +47,7 @@
             <div class="row">
               <div class="col-lg-3"></div>
               <div class="col-lg-6 text-center">
-                <br>
-                <button class="btn btn-primary">Can't Change Profile</button>
-                <br>
-                <p>Contact customer support if you have to</p>
+                <app-profile [profile]="profile" (getProfile)="getProfile()"></app-profile>
               </div>
               <div class="col-lg-3"></div>
             </div>
