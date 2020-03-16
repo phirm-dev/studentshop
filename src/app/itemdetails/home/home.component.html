@@ -4,34 +4,58 @@
     <h3 class="text-center text-uppercase">Item Details</h3>
     <br>
     <button class="btn btn-secondary" routerLink="/app/dashboard">Back to Dashboard</button>
+    <br>
+    <span class="badge badge-secondary badge-info badge-scroll-info mt-4">Scroll down to see Biders</span>
   </div>
 </div>
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-6 mt-4">
+    <div class="col-lg-6 col-md-6 mt-4">
       <ul class="list-group">
         <li class="list-group-item" style="font-weight: bold; background: aliceblue;">
           Item Description
         </li>
         <li class="list-group-item">
+          <div class="text-center" *ngIf="!itemDetails">
+            <div class="spinner-border spinner-border-sm" style="width: 20px; height: 20px;"></div>
+          </div>
           {{itemDetails?.item}}
         </li>
         <li class="list-group-item">
+          <div class="text-center" *ngIf="!itemDetails">
+            <div class="spinner-border spinner-border-sm" style="width: 20px; height: 20px;"></div>
+          </div>
           {{itemDetails?.item_description}}
         </li>
         <li class="list-group-item">
+          <div class="text-center" *ngIf="!itemDetails">
+            <div class="spinner-border spinner-border-sm" style="width: 20px; height: 20px;"></div>
+          </div>
           {{itemDetails?.item_price}} Naira
         </li>
       </ul>
+      <br>
+      <ul class="list-group">
+        <li class="list-group-item text-u" style="background: aliceblue;font-weight: bold;">Item Image
+        </li>
+        <li class="list-group-item text-u text-center" *ngIf="!itemDetails">
+          <div class="spinner-border spinner-border-sm" style="width: 50px; height: 50px;"></div>
+        </li>
+        <li class="list-group-item text-black-50">
+          <img style="width: 98%;" src="{{itemDetails?.item_images[0]?.img_uri}}" alt="">
+        </li>
+      </ul>
     </div>
-    <div class="col-lg-6 mt-4">
+    <div class="col-lg-6 col-md-6 mt-4">
       <div class="list-group">
-        <a class="list-group-item list-group-item-action text-primary justify-content-between d-flex" style="color: black !important;font-weight: bold;background: aliceblue;">
+        <a class="list-group-item list-group-item-action text-primary justify-content-between d-flex"
+          style="color: black !important;font-weight: bold;background: aliceblue;">
           Buyers details
         </a>
-        <a *ngFor="let bid of itemDetails?.bids" class="list-group-item list-group-item-action text-primary justify-content-between d-flex"
-          data-toggle="modal" data-target="#myModal" (click)="populateDetails(bid)">
+        <a *ngFor="let bid of itemDetails?.bids"
+          class="list-group-item list-group-item-action text-primary justify-content-between d-flex" data-toggle="modal"
+          data-target="#myModal" (click)="populateDetails(bid)">
           Buyers Name - {{bid.full_name}}
           <span>
             <button class="btn btn-secondary btn-sm">click to view</button>
