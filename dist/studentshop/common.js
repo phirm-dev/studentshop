@@ -28,32 +28,23 @@ var UploaditemService = /** @class */ (function () {
         this.http = http;
         this.api = '/api/item';
     }
-    UploaditemService.prototype.createItem = function (data) {
+    UploaditemService.prototype.getHttpHeaders = function () {
         var httpOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             })
         };
-        return this.http.post(this.api, data, httpOptions);
+        return httpOptions;
+    };
+    UploaditemService.prototype.createItem = function (data) {
+        return this.http.post(this.api, data, this.getHttpHeaders());
     };
     UploaditemService.prototype.getItem = function () {
-        var httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + localStorage.getItem('token')
-            })
-        };
-        return this.http.get(this.api, httpOptions);
+        return this.http.get(this.api, this.getHttpHeaders());
     };
     UploaditemService.prototype.uploadPictures = function (id, data) {
-        var httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + localStorage.getItem('token')
-            })
-        };
-        return this.http.post(this.api + "/upload/" + id, data, httpOptions);
+        return this.http.post(this.api + "/upload/" + id, data, this.getHttpHeaders());
     };
     UploaditemService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

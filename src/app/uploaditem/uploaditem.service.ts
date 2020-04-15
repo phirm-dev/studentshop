@@ -7,35 +7,27 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class UploaditemService {
 
   api = '/api/item';
+  getHttpHeaders() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    };
+    return httpOptions;
+  }
+
   constructor(private http: HttpClient) { }
 
   createItem(data) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      })
-    };
-    return this.http.post(this.api, data, httpOptions);
+    return this.http.post(this.api, data, this.getHttpHeaders());
   }
 
   getItem() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      })
-    };
-    return this.http.get(this.api, httpOptions);
+    return this.http.get(this.api, this.getHttpHeaders());
   }
 
   uploadPictures(id: string, data) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      })
-    };
-    return this.http.post(`${this.api}/upload/${id}`, data, httpOptions);
+    return this.http.post(`${this.api}/upload/${id}`, data, this.getHttpHeaders());
   }
 }

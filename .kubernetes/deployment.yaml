@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stushop
+spec:
+  selector:
+    matchLabels:
+      app: stushop
+  template:
+    metadata:
+      labels:
+        app: stushop
+    spec:
+      containers:
+        - name: stushop
+          image: 09036229746/stushop:v2
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "250m"
+          env:
+            - name: DB_URI
+              value: mongodb://mongo-service/student_shop
+            - name: IMG_BASE_URI
+              value: http://stushop.kubernetes.phirmware.me
+            - name: TOKEN_KEY
+              value: Tmx8Y=fEn!A2KF=5cU2#&UaHMJweeUcTSWN5-6pXTUEHpu?Yhv
+          ports:
+            - containerPort: 3000
+              name: stushopport
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: stushop-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: stushop
+  ports:
+    - port: 80
+      targetPort: stushopport

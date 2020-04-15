@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ItemsComponent implements OnInit {
 
-  @Input() items;
+  @Input() items: any;
   @Input() loading = true;
 
 

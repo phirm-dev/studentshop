@@ -12,10 +12,10 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
 
-  items;
+  items: Object;
   loading = true;
   helper = new JwtHelperService();
-  profile;
+  profile: Object;
 
   constructor(private itemService: UploaditemService, private router: Router, private service: DashboardService) { }
 
@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  selectItem(item) {
+  selectItem(item: { _id: any; }) {
     const path = `/app/item/details?id=${item._id}`;
     this.router.navigate([path]);
   }

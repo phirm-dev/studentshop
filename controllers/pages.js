@@ -106,8 +106,6 @@ exports.createItem = async (req, res) => {
                 res.redirect(`/app/item/details?id=${newItem._id}`);
             }
         });
-
-
     } catch (error) {
         res.status(500).json({ message: 'An error occured', error });
     }

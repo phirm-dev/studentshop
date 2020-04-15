@@ -41,7 +41,12 @@ app.get('/app*', (req, res, next) => {
 });
 
 exports.start = async () => {
-    await mongoose.connect(config.database_uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    try {
+        await mongoose.connect(config.database_uri, { useNewUrlParser: true, useUnifiedTopology: true });
+        console.log('Connection to DB successful', config.database_uri);
+    } catch (error) {
+        console.log(error);
+    }
     app.listen(config.port, () => {
         console.log('Listening at port ', config.port);
     });

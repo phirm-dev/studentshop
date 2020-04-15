@@ -6,6 +6,9 @@
 /out-tsc
 /public/uploads
 
+# enviromental variables
+app.env
+
 # dependencies
 /node_modules
 

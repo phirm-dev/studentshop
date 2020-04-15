@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  populateDetails(bid) {
+  populateDetails(bid: any) {
     this.bidDetails = bid;
   }
 

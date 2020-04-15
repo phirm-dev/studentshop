@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  @Input() profile;
+  @Input() profile: any;
   @Output() getProfile = new EventEmitter();
 
   constructor() { }
