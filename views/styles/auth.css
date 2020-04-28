@@ -1,10 +1,57 @@
-input{
-    padding: 10px !important;
-    border: 1px solid black !important;
-    background: aliceblue !important;
+nav {
+    background-color: #000b76 !important;
+}
+
+.navbar-dark .navbar-brand {
+    color: #fff779;
+}
+
+input {
+    border: none !important;
+    padding: 30px 25px !important;
+    font-weight: bold;
+    font-family: varela round;
+    background: #cde1f6 !important;
+}
+
+input:focus {
     outline: none !important;
 }
 
-input:focus{
-    outline: none !important;
+.form-title {
+    font-weight: bold;
+    font-family: varela round;
+    color: #000b76;
+}
+
+a {
+    color: #000b76;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+.btn-secondary {
+    font-family: "varela round";
+    background: #000b76 !important;
+    color: yellow;
+    border: none;
+    padding: 22px;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #2a5bff, #234dd8);
+}
+
+.btn-success {
+    /* border-radius: 50px; */
+    background: linear-gradient(145deg, #fff779, #e3d066);
+    /* box-shadow: 20px 20px 60px #d6c460, -20px -20px 60px #ffff82; */
+    border: none;
+    padding: 10px 20px;
+    color: blue;
+}
+
+@media(max-width: 550px) {
+    .form-body{
+        margin: 50px;
+    }
 }

@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark">
         <!-- Brand -->
         <a class="navbar-brand" style="font-weight: bolder;" href="/">StuShop</a>
 
@@ -57,9 +57,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3"></div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 form-body">
                 <br>
-                <h3>Signup</h3>
+                <h3 class="form-title text-center">Signup</h3>
                 <br>
                 <form method="POST" action="/auth/signup">
                     <div class="form-group">
@@ -93,7 +93,7 @@
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="form-group form-check">
-                        <label class="form-check-label">
+                        <label class="form-check-label" style="color: lightslategray; font-family: varela round;">
                             <input class="form-check-input" type="checkbox" name="agreed" required> I agree to terms
                             and conditions
                             <div class="valid-feedback">Valid.</div>
@@ -102,21 +102,23 @@
                     </div>
                     <button type="submit" class="btn btn-secondary btn-block">Submit</button>
                     <br>
-                    <a href="/auth/login">Already have an account? Signin</a>
+                    <div class="text-center" style="font-family: varela round; color: lightslategray;">
+                        Already have an account? <a href="/auth/login">Sign in</a>
+                    </div>
                 </form>
             </div>
             <div class="col-lg-3"></div>
         </div>
     </div>
 
-      <!-- jQuery library -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-      <!-- Popper JS -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  
-      <!-- Latest compiled JavaScript -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>
