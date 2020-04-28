@@ -3,25 +3,47 @@ body {
     min-height: 100vh;
 }
 
-/* .btn {
-    border-radius: 5px;
-    background: #3b90da;
-    box-shadow: 3px 3px 7px #183a57, -3px -3px 7px #5ee6ff;
-    border: none;
-} */
+nav {
+    background-color: #000b76 !important;
+}
 
-.jumbotron {
-    /* background: linear-gradient(45deg, black, transparent); */
-    height: 50vh;
+.jumbotron-home {
     color: #022B69;
-    background: aliceblue;
+    background: #000b76 !important;
 }
 
 .jumbotron>p {
     text-rendering: geometricPrecision;
 }
 
-.jumbotron .cart {
+.btn-success {
+    /* border-radius: 50px; */
+    background: linear-gradient(145deg, #fff779, #e3d066);
+    /* box-shadow: 20px 20px 60px #d6c460, -20px -20px 60px #ffff82; */
+    border: none;
+    padding: 10px 20px;
+    color: blue;
+}
+
+.btn-primary {
+    color: yellow;
+    background-color: blue;
+    border-color: #007bff;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #2a5bff, #234dd8);
+}
+
+.navbar-dark .navbar-brand {
+    color: #fff779;
+}
+
+.card {
+    border-radius: 5px;
+    background: #fefefe;
+    box-shadow: 6px 6px 12px #d5d5d5, -6px -6px 12px #ffffff;
+}
+
+/* .jumbotron .cart {
     height: 400px;
     width: 400px;
     float: right;
@@ -53,15 +75,4 @@ body {
         margin: 30px;
     }
 }
-
-.card {
-    border-radius: 37px;
-    background: linear-gradient(145deg, #d4e0df, aliceblue);
-    /* box-shadow: 28px 28px 85px #a8b1b0, -28px -28px 85px #ffffff; */
-}
-
-.card-body>p {
-    /* text-shadow: 1px 1px 0 rgba(0,0,0,.35), 1px 1px 5px rgba(0,0,0,.5); */
-    font-weight: bolder;
-    font-size: 17px;
-}
+*/

@@ -1,1 +1,0 @@
-kubectl create configmap app-env --from-file=./config.js

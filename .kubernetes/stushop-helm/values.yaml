@@ -9,6 +9,7 @@ stushopapp:
   resources:
     memory: 128Mi
     cpu: 250m
+  replicas: 1
   containerPort: 3000
   containerPortName: stushopport
 

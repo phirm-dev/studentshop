@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   name: {{ $stushopapp.name }}-app
 spec:
+  replicas: {{ $stushopapp.replicas }}
   selector:
     matchLabels:
       app: {{ $stushopapp.name }}-app
@@ -33,6 +34,13 @@ spec:
           ports:
             - containerPort: {{ $stushopapp.containerPort }}
               name: {{ $stushopapp.containerPortName }}
+      volumes:
+        - name: config-volume
+          configMap:
+            name: app-config
+            items:
+              - key: config.js
+                path: config.js
 ---
 {{- $stushopservice := .Values.stushopservice  -}}
 apiVersion: v1
